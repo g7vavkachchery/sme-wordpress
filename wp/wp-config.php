@@ -142,6 +142,8 @@ define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']);
 define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST']);
 define('WP_HTTP_BLOCK_EXTERNAL', false);
 
+define('FS_METHOD', 'direct');
+
 
 
 /* That's all, stop editing! Happy publishing. */
