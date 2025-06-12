@@ -128,6 +128,22 @@ if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
 	eval($configExtra);
 }
 
+if (isset($_SERVER['HTTP_HOST'])) {
+    if ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.1') {
+        define('WP_HOME', 'http://localhost:8000');  // or whatever your local port is
+        define('WP_SITEURL', 'http://localhost:8000');
+    } else {
+        define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']);
+        define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST']);
+    }
+}
+
+define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']);
+define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST']);
+define('WP_HTTP_BLOCK_EXTERNAL', false);
+
+
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
